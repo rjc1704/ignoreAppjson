@@ -48,7 +48,6 @@ export default function Review({
 
   useEffect(() => {
     navigation.setOptions({
-      headerLeft: null,
       headerRight: () => {
         if (authService.currentUser) {
           return (

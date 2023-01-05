@@ -17,7 +17,7 @@ export default function Stack({
   const isDark = useColorScheme() === "dark";
 
   const handleAuth = () => {
-    if (!!authService.currentUser?.uid) {
+    if (authService.currentUser?.uid) {
       // 로그아웃 요청
       signOut(authService)
         .then(() => {

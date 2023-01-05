@@ -59,6 +59,7 @@ export default function Reviewedit({
     params: { review, from },
   },
 }) {
+  console.log("from:", from);
   const isDark = useColorScheme() === "dark";
   const [ratings, setRatings] = useState(0);
   const [newTitle, setNewTitle] = useState("");
@@ -113,11 +114,11 @@ export default function Reviewedit({
   };
 
   const onEditDone = () => {
-    if (!ratings && !newTitle && !newContents) {
-      // 입력값 3개 중 아무것도 입력없으면 그대로 원상복구
-      alert("수정한 부분이 없습니다.");
-      return;
-    }
+    // if (!ratings && !newTitle && !newContents) {
+    //   // 입력값 3개 중 아무것도 입력없으면 그대로 원상복구
+    //   alert("수정한 부분이 없습니다.");
+    //   return;
+    // }
 
     // 입력값이 3개 중 하나라도 있으면 해당값만 patch할 수 있도록 객체 구성
     let editingObj = {};
@@ -149,6 +150,7 @@ export default function Reviewedit({
               setNewTitle("");
               setRatings(0);
               if (from === "Detail") {
+                console.log("출처는 Detail!");
                 navigation.reset({
                   index: 1,
                   routes: [
